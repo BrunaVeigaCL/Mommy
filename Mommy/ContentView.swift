@@ -10,10 +10,18 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Spacer()
+            
+            Button(action: {}) {
+                ZStack{
+                    Color.main
+                    Text("ADICIONAR ATIVIDADE")
+                        .foregroundStyle(.white)
+                        .font(.buttonText)
+                }
+            }
+            .frame(width: 350,height: 55)
+            .cornerRadius(10)
         }
         .padding()
     }

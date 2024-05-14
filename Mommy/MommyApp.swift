@@ -11,7 +11,7 @@ import SwiftUI
 struct MommyApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            PopUpView()
         }
     }
 }
