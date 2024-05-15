@@ -13,6 +13,8 @@
 		EFAF3FDD2BF2ACF700C23EA3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFAF3FDC2BF2ACF700C23EA3 /* Preview Assets.xcassets */; };
 		EFAF3FE42BF3D4D000C23EA3 /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAF3FE32BF3D4D000C23EA3 /* PopUpView.swift */; };
 		EFAF3FE62BF3DB5400C23EA3 /* StyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAF3FE52BF3DB5400C23EA3 /* StyleGuide.swift */; };
+		EFAF3FF52BF5608B00C23EA3 /* NerkoOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFAF3FF22BF5608B00C23EA3 /* NerkoOne-Regular.ttf */; };
+		EFAF3FF62BF5608B00C23EA3 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = EFAF3FF32BF5608B00C23EA3 /* OFL.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +25,8 @@
 		EFAF3FDC2BF2ACF700C23EA3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EFAF3FE32BF3D4D000C23EA3 /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
 		EFAF3FE52BF3DB5400C23EA3 /* StyleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleGuide.swift; sourceTree = "<group>"; };
+		EFAF3FF22BF5608B00C23EA3 /* NerkoOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NerkoOne-Regular.ttf"; sourceTree = "<group>"; };
+		EFAF3FF32BF5608B00C23EA3 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,8 +73,19 @@
 		EFAF3FDB2BF2ACF700C23EA3 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				EFAF3FF42BF5608B00C23EA3 /* Nerko_One */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		EFAF3FF42BF5608B00C23EA3 /* Nerko_One */ = {
+			isa = PBXGroup;
+			children = (
+				EFAF3FF22BF5608B00C23EA3 /* NerkoOne-Regular.ttf */,
+				EFAF3FF32BF5608B00C23EA3 /* OFL.txt */,
+			);
+			name = Nerko_One;
+			path = ../../../../../Downloads/Nerko_One;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -132,6 +147,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFAF3FDD2BF2ACF700C23EA3 /* Preview Assets.xcassets in Resources */,
+				EFAF3FF52BF5608B00C23EA3 /* NerkoOne-Regular.ttf in Resources */,
+				EFAF3FF62BF5608B00C23EA3 /* OFL.txt in Resources */,
 				EFAF3FDA2BF2ACF700C23EA3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,6 +299,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Mommy/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Mommy/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -310,6 +328,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Mommy/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Mommy/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
