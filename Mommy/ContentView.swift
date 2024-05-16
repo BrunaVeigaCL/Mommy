@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     @State var isActive: Bool = false
+    @State var atividades: [Atividade] = []
+    @State var opacidade: Double = 1.0
     
     var body: some View {
         
@@ -35,8 +37,13 @@ struct ContentView: View {
                     .padding(.top, 45.0)
                 }
                 
-                
                 Spacer()
+                
+                ForEach (0..<atividades.count, id: \.self) { atv in
+                    //atividades[atv].opacidade = 1.0 - Double(atv+1/atividades.count)
+                    
+                    ActivitysView(activity: $atividades[atv])
+                }
                 
                 Button(action: {
                     isActive = true
@@ -50,10 +57,13 @@ struct ContentView: View {
                 }
                 .frame(width: 350,height: 55)
                 .cornerRadius(10)
+                
+                Spacer()
+                
             }
             .padding()
             
-            PopUpView(isActive: $isActive)
+            PopUpView(isActive: $isActive, atividades: $atividades)
         }
         .ignoresSafeArea()
         

@@ -12,13 +12,14 @@ struct PopUpView: View {
     @State var name: String = ""
     @State var frequencia: Int = 1
     @State var ultimaVez: Int = 1
-    @State var time = Date()
+    @State var duracao: Int = 5
     @State var star1: Bool = false
     @State var star2: Bool = false
     @State var star3: Bool = false
     @State var star4: Bool = false
     @State var star5: Bool = false
     @Binding var isActive: Bool
+    @Binding var atividades: [Atividade]
     
     var body: some View {
 
@@ -28,8 +29,6 @@ struct PopUpView: View {
                 Color.black.opacity(0.3)
                 
                 VStack (alignment: .leading, spacing: 0.0) {
-                    
-                    Spacer()
                     
                     HStack {
                         
@@ -91,7 +90,7 @@ struct PopUpView: View {
                                     
                                 }
                                 .pickerStyle(.menu)
-                            .frame(minWidth: 80)
+                                .frame(minWidth: 90)
                             }
                             
                             
@@ -130,7 +129,7 @@ struct PopUpView: View {
                                     
                                 }
                                 .pickerStyle(.menu)
-                            .frame(minWidth: 80)
+                            .frame(minWidth: 90)
                             }
                             
                             Text("DIAS")
@@ -148,8 +147,30 @@ struct PopUpView: View {
                             .font(.header)
                             .foregroundStyle(.mainText)
                         
-                        DatePicker("", selection: $time, displayedComponents: .hourAndMinute)
-                            .labelsHidden()
+                        
+                        ZStack {
+                            Picker("Picker de duracao", selection:
+                                $duracao) {
+                                
+                                ForEach(1 ... 12, id: \.self) { number in
+                                    
+                                    if number == 12 {
+                                        Text("+1h").tag(number)
+                                    } else {
+                                        Text("\(String(number*5)) min").tag(number)
+                                    }
+                                    
+                                }
+                                
+                            }
+                                .pickerStyle(.wheel)
+                                .colorMultiply(.blue)
+                        }
+                        .frame(height: 100)
+                      
+                        
+                        
+                        
                         
                     }
                     .padding()
@@ -291,7 +312,11 @@ struct PopUpView: View {
                     .padding()
                     
                     
-                    Button(action: {}) {
+                    Button(action: {
+                        adicionarAtividade()
+                        print(atividades)
+                        isActive = false
+                    }) {
                         ZStack {
                             Color.main
                             Text("COMPUTAR")
@@ -304,28 +329,62 @@ struct PopUpView: View {
                     .cornerRadius(6.0)
                     .padding()
                     
-                    Spacer()
                     
                 }
-                .frame(width: 350.0, height: 570.0)
+                .frame(width: 350.0, height: 630.0)
                 .background(.fundo)
                 .textFieldStyle(.plain)
                 .keyboardType(.default)
                 .cornerRadius(10.0)
+                .padding()
                 
             }
             .ignoresSafeArea()
-            
+            .onAppear(perform: {
+                name = ""
+                frequencia = 1
+                ultimaVez = 1
+                duracao = 5
+                star1 = false
+                star2 = false
+                star3 = false
+                star4 = false
+                star5 = false
+            })
         } else {
             EmptyView()
         }
             
+    }
+    
+    func adicionarAtividade () {
         
-            
+        var stars: Int
+        
+        if star5 == true {
+            stars = 5
+        } else if  star4 == true {
+            stars = 4
+        } else if  star3 == true {
+            stars = 3
+        } else if  star2 == true {
+            stars = 2
+        } else if  star1 == true {
+            stars = 1
+        } else {
+            stars = 0
+        }
+        
+        let activity: Atividade = .init(nome: name, frequencia: frequencia, ultimaVez: ultimaVez, duracao: duracao, gosto: stars)
+        
+        
+        atividades.append(activity)
     }
     
 }
 
 #Preview {
-    PopUpView(isActive: .constant(true))
+    PopUpView(isActive: .constant(true), atividades: .constant([
+        Atividade(nome: "teste", frequencia: 10, ultimaVez: 10, duracao: 10, gosto: 20)
+    ]))
 }

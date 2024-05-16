@@ -15,6 +15,8 @@
 		EFAF3FE62BF3DB5400C23EA3 /* StyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAF3FE52BF3DB5400C23EA3 /* StyleGuide.swift */; };
 		EFAF3FF52BF5608B00C23EA3 /* NerkoOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFAF3FF22BF5608B00C23EA3 /* NerkoOne-Regular.ttf */; };
 		EFAF3FF62BF5608B00C23EA3 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = EFAF3FF32BF5608B00C23EA3 /* OFL.txt */; };
+		EFAF3FFB2BF67A1500C23EA3 /* Atividade.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAF3FFA2BF67A1500C23EA3 /* Atividade.swift */; };
+		EFAF3FFD2BF6991D00C23EA3 /* ActivitysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAF3FFC2BF6991D00C23EA3 /* ActivitysView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		EFAF3FE52BF3DB5400C23EA3 /* StyleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleGuide.swift; sourceTree = "<group>"; };
 		EFAF3FF22BF5608B00C23EA3 /* NerkoOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NerkoOne-Regular.ttf"; sourceTree = "<group>"; };
 		EFAF3FF32BF5608B00C23EA3 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
+		EFAF3FFA2BF67A1500C23EA3 /* Atividade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Atividade.swift; sourceTree = "<group>"; };
+		EFAF3FFC2BF6991D00C23EA3 /* ActivitysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitysView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 			isa = PBXGroup;
 			children = (
 				EFAF3FD52BF2ACF500C23EA3 /* MommyApp.swift */,
+				EFAF3FFA2BF67A1500C23EA3 /* Atividade.swift */,
+				EFAF3FFC2BF6991D00C23EA3 /* ActivitysView.swift */,
 				EFAF3FD72BF2ACF500C23EA3 /* ContentView.swift */,
 				EFAF3FE32BF3D4D000C23EA3 /* PopUpView.swift */,
 				EFAF3FE52BF3DB5400C23EA3 /* StyleGuide.swift */,
@@ -163,6 +169,8 @@
 				EFAF3FE42BF3D4D000C23EA3 /* PopUpView.swift in Sources */,
 				EFAF3FD82BF2ACF500C23EA3 /* ContentView.swift in Sources */,
 				EFAF3FE62BF3DB5400C23EA3 /* StyleGuide.swift in Sources */,
+				EFAF3FFB2BF67A1500C23EA3 /* Atividade.swift in Sources */,
+				EFAF3FFD2BF6991D00C23EA3 /* ActivitysView.swift in Sources */,
 				EFAF3FD62BF2ACF500C23EA3 /* MommyApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
