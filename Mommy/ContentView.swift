@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Foundation
 
 struct ContentView: View {
     @State var isActive: Bool = false
@@ -15,7 +16,7 @@ struct ContentView: View {
     var body: some View {
         
         ZStack {
-            VStack {
+            VStack (spacing: 10.0){
                 ZStack {
                     Rectangle()
                         .frame(width: 400)
@@ -39,10 +40,13 @@ struct ContentView: View {
                 
                 Spacer()
                 
-                ForEach (0..<atividades.count, id: \.self) { atv in
-                    //atividades[atv].opacidade = 1.0 - Double(atv+1/atividades.count)
-                    
-                    ActivitysView(activity: $atividades[atv])
+                ScrollView {
+                    ForEach (0..<atividades.count, id: \.self) { atv in
+                        ActivitysView(activity: $atividades[atv], didTapRemove: {
+                            atividades.remove(at: atv)
+                        })
+                        
+                    }
                 }
                 
                 Button(action: {

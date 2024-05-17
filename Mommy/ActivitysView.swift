@@ -10,6 +10,7 @@ import SwiftUI
 struct ActivitysView: View {
     
     @Binding var activity: Atividade
+    var didTapRemove: () -> Void
     
     var body: some View {
         
@@ -42,19 +43,24 @@ struct ActivitysView: View {
             }
             Spacer()
             
-            Image(systemName: "trash")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 20)
+            Button(action: {
+                didTapRemove()
+            }) {
+                Image(systemName: "trash")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 20)
+                    .foregroundColor(.mainText)
+            }
                 
             
             
         }
-        .padding()
+        .padding(25.0)
         
     }
 }
 
 #Preview {
-    ActivitysView(activity: .constant(Atividade(nome: "TESTE", frequencia: 10, ultimaVez: 10, duracao: 10, gosto: 20)))
+    ActivitysView(activity: .constant(Atividade(nome: "TESTE", frequencia: 10, ultimaVez: 10, duracao: 10, gosto: 20)), didTapRemove: {print("removeu")})
 }

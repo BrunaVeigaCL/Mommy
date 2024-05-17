@@ -313,12 +313,20 @@ struct PopUpView: View {
                     
                     
                     Button(action: {
-                        adicionarAtividade()
-                        print(atividades)
-                        isActive = false
+                        if name != "" {
+                            adicionarAtividade()
+                            print(atividades)
+                            isActive = false
+                        } else {
+                            
+                        }
                     }) {
                         ZStack {
-                            Color.main
+                            if name != "" {
+                                Color.main
+                            } else {
+                                Color.offButton
+                            }
                             Text("COMPUTAR")
                                 .foregroundStyle(.fundo)
                                 .font(.buttonText)
@@ -379,6 +387,10 @@ struct PopUpView: View {
         
         
         atividades.append(activity)
+        
+        atividades.sort {
+            $0.nota > $1.nota
+        }
     }
     
 }
