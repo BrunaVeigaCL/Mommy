@@ -43,11 +43,9 @@ struct ContentView: View {
                     VStack (spacing: 27.0) {
                         ForEach (0..<atividades.count, id: \.self) { atv in
                             
-                            let opacidade = 1.0 - Double((atv)/atividades.count)
-                            
                             ActivitysView(activity: $atividades[atv], didTapRemove: {
                                 atividades.remove(at: atv)
-                            }, opacidade: opacidade)
+                            }, opacidade: getActivityOpacity(index: atv, totalCount: atividades.count))
                             
                         }
                     }
@@ -77,11 +75,11 @@ struct ContentView: View {
             PopUpView(isActive: $isActive, atividades: $atividades)
         }
         .ignoresSafeArea()
-        
-        
-        
     }
 
+    func getActivityOpacity (index: Int, totalCount: Int) -> Double {
+        1.0 - Double(index)/Double(totalCount)
+    }
 }
 
 #Preview {

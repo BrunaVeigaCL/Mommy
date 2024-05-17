@@ -24,7 +24,8 @@ struct ActivitysView: View {
                     .foregroundColor(.activity1)
                     .opacity(opacidade)
                 
-                    let notaCom1CasaDec = String(format: "%.1f", activity.nota)
+                
+                let notaCom1CasaDec = String(format: "%.1f", activity.nota)
                 
                 
                 Text("\(notaCom1CasaDec)")
@@ -62,7 +63,7 @@ struct ActivitysView: View {
                     .frame(width: 20)
                     .foregroundColor(.mainText)
             }
-                
+            
             
             
         }
@@ -72,5 +73,5 @@ struct ActivitysView: View {
 }
 
 #Preview {
-    ActivitysView(activity: .constant(Atividade(nome: "TESTE", frequencia: 1, ultimaVez:365, duracao: 10, gosto: 5)), didTapRemove: {print("removeu")}, opacidade: 1.0)
+    ActivitysView(activity: .constant(Atividade(nome: "TESTE", frequencia: 1, ultimaVez:365, duracao: 10, gosto: 5)), didTapRemove: {print("removeu")}, opacidade: 0.2)
 }
