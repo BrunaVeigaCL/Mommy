@@ -11,18 +11,17 @@ import Foundation
 struct ContentView: View {
     @State var isActive: Bool = false
     @State var atividades: [Atividade] = []
-    @State var opacidade: Double = 1.0
     
     var body: some View {
         
         ZStack {
-            VStack (spacing: 10.0){
+            VStack (spacing: 0.0){
                 ZStack {
                     Rectangle()
                         .frame(width: 400)
                         .frame(height: 150)
                         .ignoresSafeArea()
-                    .foregroundColor(.main)
+                        .foregroundColor(.main)
                     
                     HStack {
                         Image(systemName: "list.bullet.rectangle.portrait")
@@ -38,16 +37,23 @@ struct ContentView: View {
                     .padding(.top, 45.0)
                 }
                 
-                Spacer()
+                //Spacer()
                 
                 ScrollView {
-                    ForEach (0..<atividades.count, id: \.self) { atv in
-                        ActivitysView(activity: $atividades[atv], didTapRemove: {
-                            atividades.remove(at: atv)
-                        })
-                        
+                    VStack (spacing: 27.0) {
+                        ForEach (0..<atividades.count, id: \.self) { atv in
+                            
+                            let opacidade = 1.0 - Double((atv)/atividades.count)
+                            
+                            ActivitysView(activity: $atividades[atv], didTapRemove: {
+                                atividades.remove(at: atv)
+                            }, opacidade: opacidade)
+                            
+                        }
                     }
+                    .padding(.top, 27)
                 }
+                
                 
                 Button(action: {
                     isActive = true
@@ -65,6 +71,7 @@ struct ContentView: View {
                 Spacer()
                 
             }
+            .ignoresSafeArea(.container, edges: [.top])
             .padding()
             
             PopUpView(isActive: $isActive, atividades: $atividades)

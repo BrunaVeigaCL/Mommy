@@ -11,6 +11,7 @@ struct ActivitysView: View {
     
     @Binding var activity: Atividade
     var didTapRemove: () -> Void
+    var opacidade: Double
     
     var body: some View {
         
@@ -21,9 +22,12 @@ struct ActivitysView: View {
                     .scaledToFit()
                     .frame(width: 80)
                     .foregroundColor(.activity1)
-                    .opacity(activity.opacidade)
+                    .opacity(opacidade)
                 
-                Text("\(String(activity.nota))")
+                    let notaCom1CasaDec = String(format: "%.1f", activity.nota)
+                
+                
+                Text("\(notaCom1CasaDec)")
                     .font(.activityNote)
                     .foregroundStyle(.fundo)
             }
@@ -36,9 +40,15 @@ struct ActivitysView: View {
                 Text("REALIZADA A \(activity.ultimaVez) DIAS")
                     .font(.activitySubtitle)
                     .foregroundStyle(.main)
-                Text("\(activity.duracao) min")
-                    .font(.activitySecondSubtitle)
-                    .foregroundStyle(.tertiaryText)
+                if activity.duracao == 60 {
+                    Text("+1 h")
+                        .font(.activitySecondSubtitle)
+                        .foregroundStyle(.tertiaryText)
+                } else {
+                    Text("\(activity.duracao) min")
+                        .font(.activitySecondSubtitle)
+                        .foregroundStyle(.tertiaryText)
+                }
                 
             }
             Spacer()
@@ -56,11 +66,11 @@ struct ActivitysView: View {
             
             
         }
-        .padding(25.0)
+        .padding(.horizontal, 25.0)
         
     }
 }
 
 #Preview {
-    ActivitysView(activity: .constant(Atividade(nome: "TESTE", frequencia: 10, ultimaVez: 10, duracao: 10, gosto: 20)), didTapRemove: {print("removeu")})
+    ActivitysView(activity: .constant(Atividade(nome: "TESTE", frequencia: 1, ultimaVez:365, duracao: 10, gosto: 5)), didTapRemove: {print("removeu")}, opacidade: 1.0)
 }

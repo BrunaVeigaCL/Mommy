@@ -30,7 +30,7 @@ extension Font {
     )
 
     static let activityNote: Font = .system(
-        size: 24,
+        size: 22,
         weight: .black
     )
     

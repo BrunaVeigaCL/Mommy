@@ -84,7 +84,7 @@ struct PopUpView: View {
                                 Picker("Picker de frequencia", selection:
                                     $frequencia) {
                                     
-                                    ForEach(1 ... 365, id: \.self) { number in
+                                    ForEach(1 ... 100, id: \.self) { number in
                                         Text(String(number)).tag(number)
                                     }
                                     
@@ -123,7 +123,7 @@ struct PopUpView: View {
                                 Picker("Picker de frequencia", selection:
                                     $ultimaVez) {
                                     
-                                    ForEach(1 ... 365, id: \.self) { number in
+                                    ForEach(1 ... 100, id: \.self) { number in
                                         Text(String(number)).tag(number)
                                     }
                                     
@@ -383,7 +383,7 @@ struct PopUpView: View {
             stars = 0
         }
         
-        let activity: Atividade = .init(nome: name, frequencia: frequencia, ultimaVez: ultimaVez, duracao: duracao, gosto: stars)
+        let activity: Atividade = .init(nome: name, frequencia: frequencia, ultimaVez: ultimaVez, duracao: duracao * 5, gosto: stars)
         
         
         atividades.append(activity)
