@@ -12,6 +12,7 @@ struct ActivitysView: View {
     @Binding var activity: Atividade
     var didTapRemove: () -> Void
     var opacidade: Double
+    @State var tentouApagar: Bool = false
     
     var body: some View {
         
@@ -38,7 +39,7 @@ struct ActivitysView: View {
                 Text(activity.nome)
                     .font(.activityTitle)
                     .foregroundStyle(.mainText)
-                Text("REALIZADA A \(activity.ultimaVez) DIAS")
+                Text("REALIZADA HÁ \(activity.ultimaVez) DIAS")
                     .font(.activitySubtitle)
                     .foregroundStyle(.main)
                 if activity.duracao == 60 {
@@ -55,7 +56,7 @@ struct ActivitysView: View {
             Spacer()
             
             Button(action: {
-                didTapRemove()
+                tentouApagar = true
             }) {
                 Image(systemName: "trash")
                     .resizable()
@@ -68,6 +69,12 @@ struct ActivitysView: View {
             
         }
         .padding(.horizontal, 25.0)
+        .alert("Você tem certeza?", isPresented: $tentouApagar) {
+            Button("Apagar atividade", role: .destructive) {
+                didTapRemove()
+            }
+            Button("Cancelar", role: .cancel, action: {})
+        }
         
     }
 }

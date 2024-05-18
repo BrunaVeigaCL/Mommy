@@ -34,17 +34,24 @@ struct ContentView: View {
                         
                     }
                     .foregroundColor(.white)
-                    .padding(.top, 45.0)
+                    .padding(.top, 85.0)
                 }
                 
-                //Spacer()
+//                Text ("ORGANIZE SUAS ATIVIDADES EM ORDEM DE PRIORIDADE")
+//                    .font(.activityTitle)
+//                    .foregroundColor(.mainText)
+//                    .multilineTextAlignment(.center)
+//                    .padding(15)
+                
                 
                 ScrollView {
                     VStack (spacing: 27.0) {
                         ForEach (0..<atividades.count, id: \.self) { atv in
                             
                             ActivitysView(activity: $atividades[atv], didTapRemove: {
+                                
                                 atividades.remove(at: atv)
+                                
                             }, opacidade: getActivityOpacity(index: atv, totalCount: atividades.count))
                             
                         }
@@ -58,13 +65,21 @@ struct ContentView: View {
                 }) {
                     ZStack{
                         Color.main
-                        Text("ADICIONAR ATIVIDADE")
-                            .foregroundStyle(.white)
-                            .font(.buttonText)
+                        HStack (spacing: 15.0) {
+                            Text("ADICIONAR ATIVIDADE")
+                                .foregroundStyle(.white)
+                                .font(.buttonText)
+                            Image(systemName: "plus.circle.fill")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 25)
+                                .foregroundColor(.fundo)
+                        }
                     }
                 }
                 .frame(width: 350,height: 55)
                 .cornerRadius(10)
+                .padding(.bottom)
                 
                 Spacer()
                 
