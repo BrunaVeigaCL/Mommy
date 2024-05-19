@@ -9,7 +9,8 @@ import SwiftUI
 import Foundation
 
 struct ContentView: View {
-    @State var isActive: Bool = false
+    @State var isPopupActive: Bool = false
+    @State var isInformationActive: Bool = false
     @State var atividades: [Atividade] = []
     
     var body: some View {
@@ -24,6 +25,13 @@ struct ContentView: View {
                         .foregroundColor(.main)
                     
                     HStack {
+                        
+                        Image(systemName: "info.circle")
+                            .padding(.top)
+                            .opacity(0.0)
+                        
+                        Spacer()
+                        
                         Image(systemName: "list.bullet.rectangle.portrait")
                             .resizable()
                             .frame(height: 32)
@@ -32,9 +40,20 @@ struct ContentView: View {
                         Text("MOMMY")
                             .font(.custom("NerkoOne-Regular", size: 50))
                         
+                        Spacer()
+                        
+                        Button(action: {
+                            isInformationActive = true
+                        }){
+                            Image(systemName: "info.circle")
+                                .padding(.top)
+                        }
+                            
+                        
                     }
                     .foregroundColor(.white)
                     .padding(.top, 85.0)
+                    .padding(.horizontal)
                 }
                 
 //                Text ("ORGANIZE SUAS ATIVIDADES EM ORDEM DE PRIORIDADE")
@@ -61,7 +80,7 @@ struct ContentView: View {
                 
                 
                 Button(action: {
-                    isActive = true
+                    isPopupActive = true
                 }) {
                     ZStack{
                         Color.main
@@ -87,7 +106,8 @@ struct ContentView: View {
             .ignoresSafeArea(.container, edges: [.top])
             .padding()
             
-            PopUpView(isActive: $isActive, atividades: $atividades)
+            PopUpView(isPopupActive: $isPopupActive, atividades: $atividades)
+            InformationView(isInformationActive: $isInformationActive)
         }
         .ignoresSafeArea()
     }

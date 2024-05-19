@@ -18,13 +18,13 @@ struct PopUpView: View {
     @State var star3: Bool = false
     @State var star4: Bool = false
     @State var star5: Bool = false
-    @Binding var isActive: Bool
+    @Binding var isPopupActive: Bool
     @Binding var atividades: [Atividade]
     
     var body: some View {
 
         
-        if isActive {
+        if isPopupActive {
             ZStack {
                 Color.black.opacity(0.3)
                 
@@ -34,11 +34,12 @@ struct PopUpView: View {
                         
                         Spacer()
                         
-                        Button(action: {isActive = false}) {
+                        Button(action: {isPopupActive = false}) {
                             Text("SAIR")
                                 .font(.exitText)
                                 .foregroundStyle(.exitButton)
                         }
+                        
                         
                     }
                     .padding()
@@ -316,7 +317,7 @@ struct PopUpView: View {
                         if name != "" {
                             adicionarAtividade()
                             print(atividades)
-                            isActive = false
+                            isPopupActive = false
                         } else {
                             
                         }
@@ -396,7 +397,7 @@ struct PopUpView: View {
 }
 
 #Preview {
-    PopUpView(isActive: .constant(true), atividades: .constant([
+    PopUpView(isPopupActive: .constant(true), atividades: .constant([
         Atividade(nome: "teste", frequencia: 10, ultimaVez: 10, duracao: 10, gosto: 20)
     ]))
 }

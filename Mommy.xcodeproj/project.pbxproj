@@ -17,6 +17,7 @@
 		EFAF3FF62BF5608B00C23EA3 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = EFAF3FF32BF5608B00C23EA3 /* OFL.txt */; };
 		EFAF3FFB2BF67A1500C23EA3 /* Atividade.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAF3FFA2BF67A1500C23EA3 /* Atividade.swift */; };
 		EFAF3FFD2BF6991D00C23EA3 /* ActivitysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAF3FFC2BF6991D00C23EA3 /* ActivitysView.swift */; };
+		EFAF3FFF2BF9745500C23EA3 /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAF3FFE2BF9745500C23EA3 /* InformationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		EFAF3FF32BF5608B00C23EA3 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		EFAF3FFA2BF67A1500C23EA3 /* Atividade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Atividade.swift; sourceTree = "<group>"; };
 		EFAF3FFC2BF6991D00C23EA3 /* ActivitysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitysView.swift; sourceTree = "<group>"; };
+		EFAF3FFE2BF9745500C23EA3 /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 			children = (
 				EFAF3FD52BF2ACF500C23EA3 /* MommyApp.swift */,
 				EFAF3FFA2BF67A1500C23EA3 /* Atividade.swift */,
+				EFAF3FFE2BF9745500C23EA3 /* InformationView.swift */,
 				EFAF3FFC2BF6991D00C23EA3 /* ActivitysView.swift */,
 				EFAF3FD72BF2ACF500C23EA3 /* ContentView.swift */,
 				EFAF3FE32BF3D4D000C23EA3 /* PopUpView.swift */,
@@ -166,6 +169,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFAF3FFF2BF9745500C23EA3 /* InformationView.swift in Sources */,
 				EFAF3FE42BF3D4D000C23EA3 /* PopUpView.swift in Sources */,
 				EFAF3FD82BF2ACF500C23EA3 /* ContentView.swift in Sources */,
 				EFAF3FE62BF3DB5400C23EA3 /* StyleGuide.swift in Sources */,

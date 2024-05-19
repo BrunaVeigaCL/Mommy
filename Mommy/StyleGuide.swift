@@ -48,4 +48,14 @@ extension Font {
         size: 13,
         weight: .regular
     )
+    
+    static let informationTitle: Font = .system(
+        size: 15,
+        weight: .bold
+    )
+    
+    static let informationSubtitle: Font = .system(
+        size: 15,
+        weight: .regular
+    )
 }
