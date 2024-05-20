@@ -130,7 +130,7 @@ struct PopUpView: View {
                                     
                                 }
                                 .pickerStyle(.menu)
-                            .frame(minWidth: 90)
+                            .frame(minWidth: 100)
                             }
                             
                             Text("DIAS")

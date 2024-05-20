@@ -13,6 +13,8 @@ struct ActivitysView: View {
     var didTapRemove: () -> Void
     var opacidade: Double
     @State var tentouApagar: Bool = false
+    @State var tentouApagarTudo: Bool = false
+    var didTapRemoveAll: () -> Void
     
     var body: some View {
         
@@ -74,11 +76,22 @@ struct ActivitysView: View {
                 didTapRemove()
             }
             Button("Cancelar", role: .cancel, action: {})
+            Button("Apagar todas as atividades", role: .destructive) {
+                tentouApagarTudo = true
+            }
+        }
+        .confirmationDialog("Isso apagará toda a sua lista", isPresented: $tentouApagarTudo, titleVisibility: .visible) {
+            Button("OK", role: .cancel, action: {})
+            
+            Button("Apagar Tudo", role: .destructive) {
+                didTapRemoveAll()
+            }
+            
         }
         
     }
 }
 
 #Preview {
-    ActivitysView(activity: .constant(Atividade(nome: "TESTE", frequencia: 1, ultimaVez:365, duracao: 10, gosto: 5)), didTapRemove: {print("removeu")}, opacidade: 0.2)
+    ActivitysView(activity: .constant(Atividade(nome: "TESTE", frequencia: 1, ultimaVez:365, duracao: 10, gosto: 5)), didTapRemove: {print("removeu")}, opacidade: 0.2, didTapRemoveAll: {print("removeu Tudo")})
 }

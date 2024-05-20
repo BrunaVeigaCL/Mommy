@@ -71,7 +71,11 @@ struct ContentView: View {
                                 
                                 atividades.remove(at: atv)
                                 
-                            }, opacidade: getActivityOpacity(index: atv, totalCount: atividades.count))
+                            }, opacidade: getActivityOpacity(index: atv, totalCount: atividades.count), didTapRemoveAll: {
+                                
+                                atividades.removeAll()
+                                
+                            })
                             
                         }
                     }

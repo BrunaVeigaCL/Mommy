@@ -28,7 +28,7 @@ struct informationOfActivityView: View {
                 .padding(.horizontal)
                 .padding(.top)
                 
-            
+
                 
                 
             }
