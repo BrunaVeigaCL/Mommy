@@ -111,9 +111,14 @@ struct ContentView: View {
             .padding()
             
             PopUpView(isPopupActive: $isPopupActive, atividades: $atividades)
+                
             InformationView(isInformationActive: $isInformationActive)
         }
         .ignoresSafeArea()
+        .animation(.easeInOut(duration: 0.2), value: isPopupActive)
+        .animation(.easeInOut(duration: 0.5), value: isInformationActive)
+        
+        
     }
 
     func getActivityOpacity (index: Int, totalCount: Int) -> Double {

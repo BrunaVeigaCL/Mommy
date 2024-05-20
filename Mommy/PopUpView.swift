@@ -91,9 +91,9 @@ struct PopUpView: View {
                                     
                                 }
                                 .pickerStyle(.menu)
-                                .frame(minWidth: 90)
+                                .frame(minWidth: 100)
+                                .colorMultiply(.mainText)
                             }
-                            
                             
                             Text("DIAS")
                             
@@ -130,7 +130,10 @@ struct PopUpView: View {
                                     
                                 }
                                 .pickerStyle(.menu)
-                            .frame(minWidth: 100)
+                                .frame(minWidth: 100)
+                                .colorMultiply(.mainText)
+                                
+                                
                             }
                             
                             Text("DIAS")

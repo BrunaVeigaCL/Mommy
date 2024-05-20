@@ -10,7 +10,7 @@ import SwiftUI
 struct informationOfActivityView: View {
     
     @Binding var seeInformationOfActivity: Bool
-    @Binding var activity: Atividade
+    var alteraAtividade: () -> Void
     
     var body: some View {
         ZStack {
@@ -28,7 +28,7 @@ struct informationOfActivityView: View {
                 .padding(.horizontal)
                 .padding(.top)
                 
-
+                
                 
                 
             }
@@ -44,5 +44,5 @@ struct informationOfActivityView: View {
 
 
 #Preview {
-    informationOfActivityView(seeInformationOfActivity: .constant(true), activity: .constant(.init(frequencia: 3, ultimaVez: 4, duracao: 10, gosto: 4)))
+    informationOfActivityView(seeInformationOfActivity: .constant(true), alteraAtividade: {print("oi")})
 }

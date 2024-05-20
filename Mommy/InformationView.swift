@@ -53,6 +53,7 @@ struct InformationView: View {
                 .frame(width: 300)
                 .background(.fundo)
                 .cornerRadius(10.0)
+                .animation(.easeInOut(duration: 0.5), value: isInformationActive)
                 
             }
             .ignoresSafeArea()
