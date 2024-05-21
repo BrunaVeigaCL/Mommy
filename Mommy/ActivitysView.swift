@@ -24,7 +24,7 @@ struct ActivitysView: View {
                 Circle()
                     .scaledToFit()
                     .frame(width: 80)
-                    .foregroundColor(.activity1)
+                    .foregroundColor(.activity)
                     .opacity(opacidade)
                 
                 
