@@ -59,10 +59,5 @@ extension Font {
         weight: .regular
     )
     
-    static let seeActivityTitle: Font = .system(
-        size: 17,
-        weight: .bold
-    )
-    
     
 }

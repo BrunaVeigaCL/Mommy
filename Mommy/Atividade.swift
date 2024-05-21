@@ -7,6 +7,8 @@
 
 import Foundation
 
+// Struct do tipo atividade, em variáveis desse tipo vou armazenar cada item meu
+
 struct Atividade {
     var nome: String = ""
     var frequencia: Int

@@ -17,6 +17,7 @@ struct ContentView: View {
         
         ZStack {
             VStack (spacing: 0.0){
+                
                 ZStack {
                     Rectangle()
                         .frame(width: 400)
@@ -54,14 +55,7 @@ struct ContentView: View {
                     .foregroundColor(.white)
                     .padding(.top, 85.0)
                     .padding(.horizontal)
-                }
-                
-//                Text ("ORGANIZE SUAS ATIVIDADES EM ORDEM DE PRIORIDADE")
-//                    .font(.activityTitle)
-//                    .foregroundColor(.mainText)
-//                    .multilineTextAlignment(.center)
-//                    .padding(15)
-                
+                } // Retangulo do título
                 
                 ScrollView {
                     VStack (spacing: 27.0) {
@@ -77,7 +71,7 @@ struct ContentView: View {
                                 
                             })
                             
-                        }
+                        }   //  imprime minhas atividades cadastradas
                     }
                     .padding(.top, 27)
                 }
@@ -85,7 +79,7 @@ struct ContentView: View {
                 
                 Button(action: {
                     isPopupActive = true
-                }) {
+                }) {    // Botão de adicionar atividade
                     ZStack{
                         Color.main
                         HStack (spacing: 15.0) {
@@ -105,20 +99,17 @@ struct ContentView: View {
                 .padding(.bottom)
                 
                 Spacer()
-                
             }
             .ignoresSafeArea(.container, edges: [.top])
             .padding()
             
-            PopUpView(isPopupActive: $isPopupActive, atividades: $atividades)
+            PopUpView(isPopupActive: $isPopupActive, atividades: $atividades)   //  View do popup de adicionar
                 
-            InformationView(isInformationActive: $isInformationActive)
+            InformationView(isInformationActive: $isInformationActive)  //  View do popup de informações
         }
         .ignoresSafeArea()
         .animation(.easeInOut(duration: 0.2), value: isPopupActive)
         .animation(.easeInOut(duration: 0.5), value: isInformationActive)
-        
-        
     }
 
     func getActivityOpacity (index: Int, totalCount: Int) -> Double {

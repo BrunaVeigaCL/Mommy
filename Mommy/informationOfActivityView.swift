@@ -47,23 +47,11 @@ struct informationOfActivityView: View {
                     }
                     .padding(.leading)
                     
-                    if changeMode {
-                        //TextField
-                    } else {
-                        Text(atividade.nome)
-                            .font(.seeActivityTitle)
-                            .frame(width: 150)
-                            .frame(maxHeight: .infinity)
-                        
-                        Spacer()
-                        Button(action: {
-                            changeMode = true
-                        }){
-                            Image(systemName: "square.and.pencil")
-                                .foregroundColor(.tertiaryText)
-                        }
-                        .padding(.trailing)
-                    }
+                    Text(atividade.nome)
+                        .font(.seeActivityTitle)
+                        .frame(width: 150)
+                        .frame(maxHeight: .infinity)
+                    
                 }
                 
                 HStack (alignment: .top) {
@@ -76,16 +64,14 @@ struct informationOfActivityView: View {
                         .padding(.trailing, 20)
                         .padding(.bottom)
                     
-                    if changeMode {
-                        // pickers
-                    } else {
-                        VStack (alignment: .leading, spacing: 5.0){
-                            Text("REALIZAR A CADA \(atividade.frequencia) DIAS")
-                            Text("REALIZADA HÁ \(atividade.ultimaVez) DIAS")
-                        }
-                        .font(.activitySubtitle)
-                        .foregroundColor(.main)
+                    
+                    VStack (alignment: .leading, spacing: 5.0){
+                        Text("REALIZAR A CADA \(atividade.frequencia) DIAS")
+                        Text("REALIZADA HÁ \(atividade.ultimaVez) DIAS")
                     }
+                    .font(.activitySubtitle)
+                    .foregroundColor(.main)
+                    
                 }
                 
                 
@@ -98,29 +84,35 @@ struct informationOfActivityView: View {
                         .padding(.leading, 30)
                         .padding(.trailing, 35)
                     
-                    if changeMode {
-                        
+                    if atividade.duracao == 60 {
+                        Text("+1h")
+                            .font(.activitySecondSubtitle)
+                            .foregroundColor(.tertiaryText)
                     } else {
-                        if atividade.duracao == 60 {
-                            Text("+1h")
-                                .font(.activitySecondSubtitle)
-                                .foregroundColor(.tertiaryText)
-                        } else {
-                            Text("\(atividade.duracao) min")
-                                .font(.activitySecondSubtitle)
-                                .foregroundColor(.tertiaryText)
-                        }
+                        Text("\(atividade.duracao) min")
+                            .font(.activitySecondSubtitle)
+                            .foregroundColor(.tertiaryText)
                     }
+                    
                 }
+                
+                Button (action: {}) {
+                    Rectangle()
+                        .frame(width: 300)
+                        .frame(height: 50)
+                        .foregroundColor(.main)
+                        
+                        
+                }
+                .cornerRadius(6.0)
+                .padding(.horizontal, 25)
                 
                 Spacer()
                 
                 
-                
-                
             }
-            .frame(height: 300)
-            .frame(width: 300)
+            .frame(height: 450)
+            .frame(width: 350)
             .background(.fundo)
             .cornerRadius(10.0)
             

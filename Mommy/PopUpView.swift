@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PopUpView: View {
     
+    //  Variáveis das informações que pego do usuário
     @State var name: String = ""
     @State var frequencia: Int = 1
     @State var ultimaVez: Int = 1
@@ -18,14 +19,16 @@ struct PopUpView: View {
     @State var star3: Bool = false
     @State var star4: Bool = false
     @State var star5: Bool = false
-    @Binding var isPopupActive: Bool
-    @Binding var atividades: [Atividade]
+    
+    @Binding var isPopupActive: Bool    //  Variável que diz se o popup ta ativo
+    @Binding var atividades: [Atividade]    //  Array que guardo minhas atividades, vem de ContentView
     
     var body: some View {
 
-        
         if isPopupActive {
+            
             ZStack {
+                
                 Color.black.opacity(0.3)
                 
                 VStack (alignment: .leading, spacing: 0.0) {
@@ -352,7 +355,7 @@ struct PopUpView: View {
                 
             }
             .ignoresSafeArea()
-            .onAppear(perform: {
+            .onAppear {
                 name = ""
                 frequencia = 1
                 ultimaVez = 1
@@ -362,7 +365,8 @@ struct PopUpView: View {
                 star3 = false
                 star4 = false
                 star5 = false
-            })
+            }
+            
         } else {
             EmptyView()
         }
@@ -395,7 +399,7 @@ struct PopUpView: View {
         atividades.sort {
             $0.nota > $1.nota
         }
-    }
+    }   //  Função para dicionar uma atividade ao meu array e já ordená-lo
     
 }
 
