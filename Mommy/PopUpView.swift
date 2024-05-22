@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import Foundation
 
 struct PopUpView: View {
+    @Environment(\.modelContext) private var context
+    @Environment(\.dismiss) private var dismiss
     
     //  Variáveis das informações que pego do usuário
     @State var name: String = ""
@@ -19,9 +22,9 @@ struct PopUpView: View {
     @State var star3: Bool = false
     @State var star4: Bool = false
     @State var star5: Bool = false
+    @State var stars: Int = 1
     
     @Binding var isPopupActive: Bool    //  Variável que diz se o popup ta ativo
-    @Binding var atividades: [Atividade]    //  Array que guardo minhas atividades, vem de ContentView
     
     var body: some View {
 
@@ -30,7 +33,7 @@ struct PopUpView: View {
             ZStack {
                 
                 Color.black.opacity(0.3)
-                
+                                    
                 VStack (alignment: .leading, spacing: 0.0) {
                     
                     HStack {
@@ -321,8 +324,33 @@ struct PopUpView: View {
                     
                     Button(action: {
                         if name != "" {
-                            adicionarAtividade()
-                            print(atividades)
+                            if star5 == true {
+                                stars = 5
+                            } else if  star4 == true {
+                                stars = 4
+                            } else if  star3 == true {
+                                stars = 3
+                            } else if  star2 == true {
+                                stars = 2
+                            } else if  star1 == true {
+                                stars = 1
+                            } else {
+                                stars = 0
+                            }
+                            
+                            let atividade: Atividade = .init(nome: name, frequencia: frequencia, ultimaVez: ultimaVez, duracao: duracao * 5, gosto: stars, opacidade: 1.0)
+                            
+                            
+                            context.insert(atividade)
+
+                            try! context.save()
+                            
+                            dismiss()
+                            
+                        
+                        
+                            
+                            //print(atividades)
                             isPopupActive = false
                         } else {
                             
@@ -373,38 +401,37 @@ struct PopUpView: View {
             
     }
     
-    func adicionarAtividade () {
-        
-        var stars: Int
-        
-        if star5 == true {
-            stars = 5
-        } else if  star4 == true {
-            stars = 4
-        } else if  star3 == true {
-            stars = 3
-        } else if  star2 == true {
-            stars = 2
-        } else if  star1 == true {
-            stars = 1
-        } else {
-            stars = 0
-        }
-        
-        let activity: Atividade = .init(nome: name, frequencia: frequencia, ultimaVez: ultimaVez, duracao: duracao * 5, gosto: stars)
-        
-        
-        atividades.append(activity)
-        
-        atividades.sort {
-            $0.nota > $1.nota
-        }
-    }   //  Função para dicionar uma atividade ao meu array e já ordená-lo
+//    func adicionarAtividade () {
+//        
+//        var stars: Int
+//        
+//        if star5 == true {
+//            stars = 5
+//        } else if  star4 == true {
+//            stars = 4
+//        } else if  star3 == true {
+//            stars = 3
+//        } else if  star2 == true {
+//            stars = 2
+//        } else if  star1 == true {
+//            stars = 1
+//        } else {
+//            stars = 0
+//        }
+//        
+//        let activity = Atividade(nome: name, frequencia: frequencia, ultimaVez: ultimaVez, duracao: duracao * 5, gosto: stars)
+//        
+//        
+//        context.insert(activity)
+//        
+//        try! context.save()
+//        
+//        dismiss()
+//        
+//    }   //  Função para dicionar uma atividade ao meu array e já ordená-lo
     
 }
 
 #Preview {
-    PopUpView(isPopupActive: .constant(true), atividades: .constant([
-        Atividade(nome: "teste", frequencia: 10, ultimaVez: 10, duracao: 10, gosto: 20)
-    ]))
+    PopUpView(isPopupActive: .constant(true))
 }
