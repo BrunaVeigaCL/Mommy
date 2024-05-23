@@ -20,7 +20,7 @@ struct InformationView: View {
                         isInformationActive = false
                     }
                 
-                VStack {
+                VStack (spacing: 2.0) {
                     HStack {
                         Spacer()
                         
@@ -39,20 +39,29 @@ struct InformationView: View {
                     Text("TEM TANTAS ATIVIDADES QUE NÃO SABE POR ONDE COMEÇAR?")
                         .multilineTextAlignment(.center)
                         .padding(.horizontal)
+                        .padding(.bottom, 30)
                         .font(.informationTitle)
                         .foregroundColor(.mainText)
                         
                     
                     Text("O MOMMY É UMA FERRAMENTA PARA TE AJUDAR A ORGANIZAR SUAS ATIVIDADES EM ORDEM DE PRIORIDADE")
                         .multilineTextAlignment(.center)
-                        .padding()
+                        .padding(.horizontal, 25)
+                        .padding(.bottom, 15)
+                        .font(.informationSubtitle)
+                        .foregroundColor(.main)
+                    
+                    Text("AS ATIVIDADES SERÃO ORDENADAS COM BASE EM UMA NOTA CALCULADA A PARTIR DAS INFORMAÇÕES QUE VOCÊ FORNECER")
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal, 25)
+                        .padding(.bottom, 15)
                         .font(.informationSubtitle)
                         .foregroundColor(.main)
                         
                     
                     Spacer()
                 }
-                .frame(height: 250)
+                .frame(height: 350)
                 .frame(width: 300)
                 .background(.fundo)
                 .cornerRadius(10.0)
