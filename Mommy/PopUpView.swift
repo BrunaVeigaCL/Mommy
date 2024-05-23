@@ -65,6 +65,7 @@ struct PopUpView: View {
                                       text: $name)
                             .padding()
                             
+                            
                         }
                         .font(.activitySubtitle)
                         
@@ -101,7 +102,7 @@ struct PopUpView: View {
                                 .colorMultiply(.mainText)
                             }
                             
-                            Text("DIAS")
+                            Text("DIA(S)")
                             
                         }
                         .font(.popupText)
@@ -142,7 +143,7 @@ struct PopUpView: View {
                                 
                             }
                             
-                            Text("DIAS")
+                            Text("DIA(S)")
                             
                         }
                         .font(.popupText)
@@ -347,9 +348,6 @@ struct PopUpView: View {
                             
                             dismiss()
                             
-                        
-                        
-                            
                             //print(atividades)
                             isPopupActive = false
                         } else {
@@ -378,6 +376,10 @@ struct PopUpView: View {
                 .background(.fundo)
                 .textFieldStyle(.plain)
                 .keyboardType(.default)
+                .onTapGesture {
+                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+
+                }
                 .cornerRadius(10.0)
                 .padding()
                 

@@ -59,5 +59,19 @@ extension Font {
         weight: .regular
     )
     
+    static let emptyViewTitle: Font = .system(
+        size: 20,
+        weight: .black
+    )
     
+    static let emptyViewSubtitle: Font = .system(
+        size: 11,
+        weight: .regular
+    )
+    
+    static let emptyLittleButton: Font = .system(
+        size: 10,
+        weight: .regular
+        
+    )
 }
