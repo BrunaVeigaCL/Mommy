@@ -17,7 +17,7 @@ class Atividade {
     let ultimaVez: Int
     let duracao: Int
     let gosto: Int
-    let opacidade = 1.0
+    var opacidade = 1.0
     let nota: Double
     
     init(nome: String, frequencia: Int, ultimaVez: Int, duracao: Int, gosto: Int, opacidade: Double = 1.0) {

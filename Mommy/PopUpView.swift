@@ -338,7 +338,7 @@ struct PopUpView: View {
                                 stars = 0
                             }
                             
-                            let atividade: Atividade = .init(nome: name, frequencia: frequencia, ultimaVez: ultimaVez, duracao: duracao * 5, gosto: stars, opacidade: 1.0)
+                            let atividade: Atividade = .init(nome: name, frequencia: frequencia, ultimaVez: ultimaVez, duracao: duracao * 5, gosto: stars)
                             
                             
                             context.insert(atividade)
@@ -401,34 +401,7 @@ struct PopUpView: View {
             
     }
     
-//    func adicionarAtividade () {
-//        
-//        var stars: Int
-//        
-//        if star5 == true {
-//            stars = 5
-//        } else if  star4 == true {
-//            stars = 4
-//        } else if  star3 == true {
-//            stars = 3
-//        } else if  star2 == true {
-//            stars = 2
-//        } else if  star1 == true {
-//            stars = 1
-//        } else {
-//            stars = 0
-//        }
-//        
-//        let activity = Atividade(nome: name, frequencia: frequencia, ultimaVez: ultimaVez, duracao: duracao * 5, gosto: stars)
-//        
-//        
-//        context.insert(activity)
-//        
-//        try! context.save()
-//        
-//        dismiss()
-//        
-//    }   //  Função para dicionar uma atividade ao meu array e já ordená-lo
+
     
 }
 

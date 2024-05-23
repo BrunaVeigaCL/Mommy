@@ -65,16 +65,20 @@ struct ContentView: View {
                 
                 ScrollView {
                     VStack (spacing: 27.0) {
-                        ForEach (atividades) { atv in
+                        ForEach (Array(atividades.enumerated()), id:\.element) { index, atv in
+                    
+                            
+                            let opacidade: Double = getActivityOpacity(index: index, totalCount: atividades.count)
+
                             
                             HStack (alignment: .center, spacing: 20){
-                                
+                                                                
                                 ZStack {
                                     Circle()
                                         .scaledToFit()
                                         .frame(width: 80)
                                         .foregroundColor(.activity)
-                                        .opacity(atv.opacidade)
+                                        .opacity(opacidade)
                                     
                                     let notaCom1CasaDec = String(format: "%.1f", atv.nota)
                                     
