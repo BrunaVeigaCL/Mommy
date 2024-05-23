@@ -16,6 +16,9 @@ struct InformationView: View {
         if isInformationActive == true {
             ZStack {
                 Color.black.opacity(0.3)
+                    .onTapGesture {
+                        isInformationActive = false
+                    }
                 
                 VStack {
                     HStack {

@@ -33,6 +33,9 @@ struct PopUpView: View {
             ZStack {
                 
                 Color.black.opacity(0.3)
+                    .onTapGesture {
+                        isPopupActive = false
+                    }
                                     
                 VStack (alignment: .leading, spacing: 0.0) {
                     
